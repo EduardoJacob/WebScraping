@@ -1,0 +1,32 @@
+---
+title: "Lyrics Report"
+format: html
+---
+
+# Joanna Newsom Lyrics Report
+
+```{r}
+#| echo: false
+#| message: false
+
+library(gt)
+library(dplyr)
+
+report <- readRDS("Report.rds")
+
+report |>
+  mutate(
+    Lyrics = gsub("\n", "<br>", Lyrics)
+  ) |>
+  gt() |>
+  fmt_markdown(columns = Lyrics) |>
+  tab_header(
+    title = "Joanna Newsom Lyrics Collection"
+  ) |>
+  cols_label(
+    Title = "Track Information",
+    Lyrics = "Song Lyrics"
+  )
+```
+
+

@@ -1,0 +1,32 @@
+---
+title: "Joanna Newsom Lyrics"
+format:
+  pdf:
+    toc: true
+    toc-depth: 1
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+report <- readRDS("Report.rds")
+
+for(i in seq_len(nrow(report))) {
+
+  # Song title becomes TOC entry
+  cat("# ", report$Title[i], "\n\n", sep = "")
+
+  # Preserve exact lyrics formatting
+  cat("\\begin{verbatim}\n")
+  cat(report$Lyrics[i])
+  cat("\n\\end{verbatim}\n")
+
+  # Page break after each song
+  if(i < nrow(report)) {
+    cat("\n\\newpage\n\n")
+  }
+}
+```
+
