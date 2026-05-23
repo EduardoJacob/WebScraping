@@ -1,17 +1,6 @@
 
-# if exists ".Rbuildignore", then add current file to it
-if (file.exists(".Rbuildignore")) {
-  current_file = basename( rstudioapi::getSourceEditorContext()$path )
-  usethis::use_build_ignore(current_file)
-} 
-
-usethis::use_git_ignore("tools/")
-
-# No caso de falhar o "Package Check" com Codoc mismatches from Rd file
-# devtools::document()
 
 usethis::use_git()
-#usethis::use_git_remote("origin", url = NULL, overwrite = TRUE)
 
 usethis::use_github()
 

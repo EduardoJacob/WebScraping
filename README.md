@@ -1,0 +1,36 @@
+WebScraping with Rvest Package
+================
+
+<!-- README.md is generated from README.Rmd. Please edit that file  -->
+
+<p align="center">
+
+<img src="images/R Programming.png" alt="R Programming" width="600">
+</p>
+
+take a look at my youtube playlist with R Tutorials:
+
+------------------------------------------------------------------------
+
+<https://www.youtube.com/playlist?list=PLRbCt61PaxX2d0_QXh6Qi6_jAQd66fmcI>
+
+------------------------------------------------------------------------
+
+# WebScraping.R Summary
+
+This R script performs automated web scraping of Joanna Newsom’s lyrics
+from the website `https://joannanewsomlyrics.com/`. It systematically
+traverses the site’s link structure to identify album and track pages,
+parses URL components to categorize songs by album and track number, and
+utilizes a custom scraping function to extract the lyrical content for
+each track. Finally, the script compiles this data into a structured
+format and saves both the raw data and a formatted report as RDS files
+for further analysis.
+
+### Defined Functions
+
+- **GET_LYRICS**: This function acts as the primary data extraction
+  tool. It takes a track URL as an input, sends a request to the server,
+  and utilizes `rvest` to isolate the HTML element containing the lyrics
+  (`p.lyrics`), subsequently cleaning and returning the text content for
+  the specific song.

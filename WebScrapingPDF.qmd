@@ -3,7 +3,7 @@ title: "Joanna Newsom Lyrics"
 format:
   pdf:
     toc: true
-    toc-depth: 1
+    toc-depth: 1 
 ---
 
 ```{r}

@@ -24,12 +24,12 @@ URL = "https://joannanewsomlyrics.com/"
 
 main_page = rvest::read_html(URL)
 
-nodes = main_page |> html_elements("a")
+nodes = main_page |> rvest::html_elements("a")
 
 # 2. Extract both link and text 
 links = data.frame(
-  link = nodes |> html_attr("href") |> url_absolute(URL),
-  text = nodes |> html_text2()
+  link = nodes |> rvest::html_attr("href") |> rvest::url_absolute(URL),
+  text = nodes |> rvest::html_text2()
 )
 
 # Build Dataframe ----
@@ -47,7 +47,8 @@ musics = data.frame(
 # i = 75
 previous_album_name = ""
 
-for ( i in 74:nrow(links) ) {
+i = 3
+for ( i in 1:nrow(links) ) {
   link = links$link[i]
   original_link = link
   text = links$text[i]
@@ -96,9 +97,9 @@ for ( i in 74:nrow(links) ) {
 
  
 # Save
-saveRDS(musics,file = "musics.rds")
+# saveRDS(musics,file = "musics.rds")
 # Restore
-musics = readRDS("musics.rds")
+# musics = readRDS("musics.rds")
 
 report = data.frame(
   Title = paste0(musics$album_name," - ",as.character(musics$relative_track_number)," - ",musics$track_name) ,
